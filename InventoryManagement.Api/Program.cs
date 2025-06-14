@@ -1,4 +1,5 @@
 using InventoryManagement.Api.Data;
+using InventoryManagement.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseNpgsql(connectionString);
 });
+
+builder.Services.AddScoped<ProductService>();
 
 var app = builder.Build();
 
